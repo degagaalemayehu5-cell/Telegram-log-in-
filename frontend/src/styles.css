@@ -1,0 +1,1220 @@
+/* Telegram Official Design - Pixel Perfect Clone */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Telegram Official Colors */
+  --tg-primary: #3390ec;
+  --tg-primary-dark: #2a7ac8;
+  --tg-bg: #f4f4f4;
+  --tg-card-bg: #ffffff;
+  --tg-text: #222222;
+  --tg-text-secondary: #707579;
+  --tg-text-light: #8e9399;
+  --tg-border: #e6e9ed;
+  --tg-input-bg: #f4f4f4;
+  --tg-input-border: #e6e9ed;
+  --tg-input-focus: #3390ec;
+  --tg-error: #ff3b30;
+  --tg-success: #3fcb5a;
+  --tg-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+  --tg-shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.08);
+  
+  /* Font */
+  --tg-font: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+}
+
+body {
+  font-family: var(--tg-font);
+  background: var(--tg-bg);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 16px;
+  color: var(--tg-text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.app {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+/* Telegram Official Card */
+.telegram-login {
+  background: var(--tg-card-bg);
+  border-radius: 16px;
+  padding: 32px 24px;
+  box-shadow: var(--tg-shadow);
+  transition: box-shadow 0.2s ease;
+  border: 1px solid var(--tg-border);
+}
+
+.telegram-login:hover {
+  box-shadow: var(--tg-shadow-hover);
+}
+
+/* Telegram Official Header */
+.header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.header img {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 16px;
+}
+
+.header h1 {
+  color: var(--tg-text);
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -0.3px;
+  margin-bottom: 4px;
+}
+
+.header p {
+  color: var(--tg-text-secondary);
+  font-size: 14px;
+  font-weight: 400;
+}
+
+/* Form Container */
+.form-container {
+  text-align: center;
+  position: relative;
+}
+
+.form-container h2 {
+  color: var(--tg-text);
+  margin-bottom: 8px;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.3px;
+}
+
+.form-container .subtitle {
+  color: var(--tg-text-secondary);
+  margin-bottom: 24px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* Telegram Official Phone Input */
+.phone-input-container {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+/* Country Selector - Telegram Style */
+.country-selector {
+  position: relative;
+  width: 110px;
+}
+
+.country-code-btn {
+  width: 100%;
+  height: 48px;
+  padding: 0 8px;
+  background: var(--tg-input-bg);
+  border: 1px solid var(--tg-input-border);
+  border-radius: 12px;
+  font-size: 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: all 0.1s ease;
+  color: var(--tg-text);
+}
+
+.country-code-btn:hover:not(:disabled) {
+  background: #edf2f7;
+  border-color: #d0d5dd;
+}
+
+.country-code-btn:focus {
+  outline: none;
+  border-color: var(--tg-input-focus);
+  box-shadow: 0 0 0 3px rgba(51, 144, 236, 0.12);
+}
+
+.country-code-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.selected-flag {
+  font-size: 20px;
+  margin-right: 2px;
+}
+
+.selected-code {
+  font-weight: 500;
+  color: var(--tg-text);
+  font-size: 14px;
+}
+
+.dropdown-arrow {
+  margin-left: auto;
+  font-size: 10px;
+  color: var(--tg-text-light);
+}
+
+/* Phone Number Input - Telegram Style */
+.phone-number-input {
+  flex: 1;
+  height: 48px;
+  padding: 0 16px;
+  background: var(--tg-input-bg);
+  border: 1px solid var(--tg-input-border);
+  border-radius: 12px;
+  font-size: 15px;
+  transition: all 0.1s ease;
+  color: var(--tg-text);
+}
+
+.phone-number-input::placeholder {
+  color: var(--tg-text-light);
+  font-weight: 400;
+}
+
+.phone-number-input:focus {
+  outline: none;
+  border-color: var(--tg-input-focus);
+  background: white;
+  box-shadow: 0 0 0 3px rgba(51, 144, 236, 0.12);
+}
+
+.phone-number-input:disabled {
+  background: #f9f9f9;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* Country Dropdown - Telegram Style */
+.country-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 340px;
+  max-height: 360px;
+  background: white;
+  border: 1px solid var(--tg-border);
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  z-index: 1000;
+  margin-top: 6px;
+  overflow: hidden;
+}
+
+.country-search {
+  padding: 12px;
+  border-bottom: 1px solid var(--tg-border);
+  background: white;
+}
+
+.country-search input {
+  width: 100%;
+  height: 40px;
+  padding: 0 12px;
+  background: var(--tg-input-bg);
+  border: 1px solid var(--tg-input-border);
+  border-radius: 10px;
+  font-size: 14px;
+  transition: all 0.1s ease;
+}
+
+.country-search input:focus {
+  outline: none;
+  border-color: var(--tg-input-focus);
+  background: white;
+  box-shadow: 0 0 0 3px rgba(51, 144, 236, 0.08);
+}
+
+.country-list {
+  max-height: 300px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #c4c9cc #f0f2f5;
+}
+
+.country-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.country-list::-webkit-scrollbar-track {
+  background: #f0f2f5;
+}
+
+.country-list::-webkit-scrollbar-thumb {
+  background: #c4c9cc;
+  border-radius: 3px;
+}
+
+.country-group {
+  padding: 4px 0;
+}
+
+.region-header {
+  padding: 8px 16px;
+  background: #f8f9fa;
+  font-weight: 600;
+  font-size: 12px;
+  color: var(--tg-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.country-option {
+  width: 100%;
+  padding: 10px 16px;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  transition: background 0.1s ease;
+  color: var(--tg-text);
+}
+
+.country-option:hover {
+  background: #f4f7fb;
+}
+
+.country-option.selected {
+  background: #e8f2fe;
+  color: var(--tg-primary);
+  font-weight: 500;
+}
+
+.country-flag {
+  font-size: 18px;
+  width: 24px;
+  text-align: center;
+}
+
+.country-name {
+  flex: 1;
+  color: var(--tg-text);
+}
+
+.country-code {
+  color: var(--tg-text-light);
+  font-size: 12px;
+  font-family: 'SF Mono', monospace;
+}
+
+/* Code Input - Telegram Style */
+.code-input-container {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-bottom: 28px;
+  flex-wrap: wrap; /* For mobile responsiveness */
+}
+
+.code-digit {
+  width: 52px; /* Slightly wider for better spacing with 5 digits */
+  height: 60px;
+  text-align: center;
+  font-size: 26px;
+  font-weight: 500;
+  background: var(--tg-input-bg);
+  border: 2px solid var(--tg-input-border);
+  border-radius: 14px;
+  transition: all 0.1s ease;
+  color: var(--tg-text);
+}
+
+@media (max-width: 480px) {
+  .code-digit {
+    width: 45px;
+    height: 52px;
+    font-size: 22px;
+  }}
+
+
+.code-digit:focus {
+  outline: none;
+  border-color: var(--tg-input-focus);
+  background: white;
+  box-shadow: 0 0 0 3px rgba(51, 144, 236, 0.12);
+  transform: scale(1.02);
+}
+
+.code-digit.error {
+  border-color: var(--tg-error);
+  animation: telegramShake 0.3s ease;
+}
+
+@keyframes telegramShake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-3px); }
+  75% { transform: translateX(3px); }
+}
+
+.phone-number-display {
+  font-weight: 500;
+  color: var(--tg-text);
+  background: var(--tg-input-bg);
+  padding: 12px 16px;
+  border-radius: 14px;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 15px;
+  border: 1px solid var(--tg-border);
+}
+
+.edit-phone {
+  background: none;
+  border: none;
+  color: var(--tg-primary);
+  cursor: pointer;
+  font-size: 18px;
+  padding: 4px;
+  width: auto;
+  transition: opacity 0.2s ease;
+  opacity: 0.7;
+}
+
+.edit-phone:hover {
+  background: none;
+  opacity: 1;
+}
+
+/* 2FA Specific - Telegram Style */
+.twofa-container {
+  padding: 0;
+}
+
+.security-badge {
+  background: #f1f9fe;
+  color: var(--tg-primary);
+  padding: 10px 18px;
+  border-radius: 30px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  border: 1px solid #d4e6fa;
+}
+
+.lock-icon {
+  font-size: 16px;
+}
+
+/* Password Input - Telegram Style */
+.password-input-container {
+  margin-bottom: 24px;
+}
+
+.input-wrapper {
+  position: relative;
+  margin-bottom: 8px;
+}
+
+.input-wrapper input {
+  width: 100%;
+  height: 52px;
+  padding: 0 45px 0 16px;
+  background: var(--tg-input-bg);
+  border: 1px solid var(--tg-input-border);
+  border-radius: 14px;
+  font-size: 15px;
+  transition: all 0.1s ease;
+  color: var(--tg-text);
+}
+
+.input-wrapper input:focus {
+  outline: none;
+  border-color: var(--tg-input-focus);
+  background: white;
+  box-shadow: 0 0 0 3px rgba(51, 144, 236, 0.08);
+}
+
+.input-wrapper input.error {
+  border-color: var(--tg-error);
+}
+
+.toggle-password {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  padding: 8px;
+  width: auto;
+  color: var(--tg-text-light);
+  transition: opacity 0.2s ease;
+  opacity: 0.7;
+}
+
+.toggle-password:hover {
+  background: none;
+  opacity: 1;
+}
+
+.capslock-warning {
+  color: var(--tg-text-secondary);
+  font-size: 12px;
+  margin-bottom: 12px;
+  text-align: left;
+  padding-left: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.capslock-warning::before {
+  content: "⚠️";
+  font-size: 12px;
+}
+
+/* Password Strength - Telegram Subtle Style */
+.password-strength {
+  margin-top: 8px;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.strength-bar {
+  flex: 1;
+  height: 3px;
+  background: #e6e9ed;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.strength-fill {
+  height: 100%;
+  transition: width 0.2s ease, background-color 0.2s ease;
+}
+
+.strength-label {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--tg-text-secondary);
+  min-width: 60px;
+  text-align: right;
+}
+
+/* Telegram Official Button */
+.submit-btn {
+  width: 100%;
+  height: 52px;
+  background: var(--tg-primary);
+  color: white;
+  border: none;
+  border-radius: 14px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.submit-btn:hover:not(:disabled) {
+  background: var(--tg-primary-dark);
+}
+
+.submit-btn:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.submit-btn:disabled {
+  background: #b5d6f8;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.submit-btn.loading {
+  background: var(--tg-primary-dark);
+}
+
+.spinner {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: telegramSpin 0.8s linear infinite;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+@keyframes telegramSpin {
+  to { transform: rotate(360deg); }
+}
+
+/* Back Button - Telegram Style */
+.back-button {
+  background: none;
+  border: none;
+  color: var(--tg-primary);
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 8px;
+  margin-bottom: 16px;
+  width: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: opacity 0.2s ease;
+  opacity: 0.8;
+}
+
+.back-button:hover {
+  background: none;
+  opacity: 1;
+}
+
+.back-button::before {
+  content: "←";
+  font-size: 18px;
+  line-height: 1;
+}
+
+/* Resend Section - Telegram Style */
+.resend-section {
+  margin-top: 24px;
+  text-align: center;
+  padding-top: 20px;
+  border-top: 1px solid var(--tg-border);
+}
+
+.resend-btn {
+  background: none;
+  border: none;
+  color: var(--tg-primary);
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 10px 20px;
+  width: auto;
+  transition: opacity 0.2s ease;
+  opacity: 0.8;
+}
+
+.resend-btn:hover:not(:disabled) {
+  background: none;
+  opacity: 1;
+  text-decoration: underline;
+}
+
+.resend-btn:disabled {
+  color: var(--tg-text-light);
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.timer {
+  color: var(--tg-text-secondary);
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.timer-icon {
+  font-size: 14px;
+}
+
+/* Messages - Telegram Style */
+.error-message {
+  background: #feeae9;
+  color: var(--tg-error);
+  padding: 12px 16px;
+  border-radius: 14px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid #ffd1cf;
+  text-align: left;
+  animation: telegramFadeIn 0.2s ease;
+}
+
+.success-message {
+  background: #e6f9ea;
+  color: var(--tg-success);
+  padding: 12px 16px;
+  border-radius: 14px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid #b8e6c6;
+  animation: telegramFadeIn 0.2s ease;
+}
+
+@keyframes telegramFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Wait Timer - Telegram Style */
+.wait-timer {
+  background: #fef7e8;
+  border-radius: 14px;
+  padding: 16px;
+  margin-bottom: 20px;
+  color: #f5a623;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+  border: 1px solid #ffdeaa;
+}
+
+.timer-progress {
+  height: 3px;
+  background: #ffdeaa;
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+
+.timer-bar {
+  height: 100%;
+  background: #f5a623;
+  transition: width 1s linear;
+}
+
+/* Info Box - Telegram Style */
+.info-box {
+  background: #f8f9fa;
+  border-radius: 14px;
+  padding: 16px;
+  margin: 20px 0;
+  text-align: left;
+  font-size: 14px;
+  border: 1px solid var(--tg-border);
+}
+
+.info-box p {
+  color: var(--tg-text-secondary);
+  line-height: 1.5;
+}
+
+.info-box strong {
+  color: var(--tg-text);
+  display: block;
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+
+/* Links - Telegram Style */
+.twofa-links {
+  margin-top: 16px;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.link-btn {
+  background: none;
+  border: none;
+  color: var(--tg-primary);
+  cursor: pointer;
+  font-size: 14px;
+  padding: 8px;
+  width: auto;
+  transition: opacity 0.2s ease;
+  opacity: 0.8;
+}
+
+.link-btn:hover {
+  background: none;
+  opacity: 1;
+  text-decoration: underline;
+}
+
+/* Success Screen - Telegram Style */
+.success-message {
+  text-align: center;
+  padding: 16px 0;
+}
+
+.success-message h2 {
+  color: var(--tg-text);
+  font-size: 22px;
+  font-weight: 600;
+  margin: 20px 0 8px;
+  letter-spacing: -0.3px;
+}
+
+.success-message p {
+  color: var(--tg-text-secondary);
+  font-size: 15px;
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+
+.success-details {
+  background: #f8f9fa;
+  border-radius: 14px;
+  padding: 20px;
+  margin: 24px 0;
+  border: 1px solid var(--tg-border);
+  text-align: left;
+}
+
+.success-details p {
+  margin-bottom: 8px;
+  color: var(--tg-text);
+}
+
+.success-details small {
+  color: var(--tg-text-light);
+  font-size: 13px;
+  display: block;
+  margin-top: 12px;
+}
+
+.reset-btn {
+  width: 100%;
+  height: 52px;
+  background: white;
+  color: var(--tg-primary);
+  border: 2px solid var(--tg-primary);
+  border-radius: 14px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: 8px;
+}
+
+.reset-btn:hover {
+  background: #e8f2fe;
+}
+
+/* Success Checkmark - Telegram Style */
+.success-checkmark {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto;
+}
+
+.check-icon {
+  width: 80px;
+  height: 80px;
+  position: relative;
+  border-radius: 50%;
+  box-sizing: content-box;
+  border: 4px solid var(--tg-success);
+}
+
+.check-icon::before {
+  top: 50%;
+  left: 50%;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background: var(--tg-success);
+  border-radius: 50%;
+  content: "";
+  opacity: 0.1;
+}
+
+.icon-line {
+  height: 5px;
+  background-color: var(--tg-success);
+  display: block;
+  border-radius: 2px;
+  position: absolute;
+  z-index: 10;
+}
+
+.icon-line.line-tip {
+  top: 46px;
+  left: 14px;
+  width: 25px;
+  transform: rotate(45deg);
+  animation: icon-tip 0.3s ease;
+}
+
+.icon-line.line-long {
+  top: 38px;
+  right: 8px;
+  width: 47px;
+  transform: rotate(-45deg);
+  animation: icon-long 0.3s ease;
+}
+
+.icon-circle {
+  top: -4px;
+  left: -4px;
+  z-index: 10;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  position: absolute;
+  box-sizing: content-box;
+  border: 4px solid rgba(63, 203, 90, 0.3);
+}
+
+.icon-fix {
+  top: 8px;
+  width: 5px;
+  left: 26px;
+  z-index: 1;
+  height: 85px;
+  position: absolute;
+  transform: rotate(-45deg);
+  background-color: white;
+}
+
+@keyframes icon-tip {
+  0% {
+    width: 0;
+    left: 1px;
+    top: 19px;
+  }
+  54% {
+    width: 0;
+    left: 1px;
+    top: 19px;
+  }
+  70% {
+    width: 50px;
+    left: -8px;
+    top: 37px;
+  }
+  84% {
+    width: 17px;
+    left: 21px;
+    top: 48px;
+  }
+  100% {
+    width: 25px;
+    left: 14px;
+    top: 46px;
+  }
+}
+
+@keyframes icon-long {
+  0% {
+    width: 0;
+    right: 46px;
+    top: 54px;
+  }
+  65% {
+    width: 0;
+    right: 46px;
+    top: 54px;
+  }
+  84% {
+    width: 55px;
+    right: 0px;
+    top: 35px;
+  }
+  100% {
+    width: 47px;
+    right: 8px;
+    top: 38px;
+  }
+}
+
+/* Security Tip - Telegram Style */
+.security-tip {
+  margin-top: 24px;
+  text-align: left;
+  font-size: 13px;
+}
+
+.security-tip details {
+  background: #f8f9fa;
+  border-radius: 14px;
+  padding: 14px 16px;
+  border: 1px solid var(--tg-border);
+}
+
+.security-tip summary {
+  color: var(--tg-text);
+  font-weight: 500;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.tip-content {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--tg-border);
+}
+
+.tip-content p {
+  color: var(--tg-text-secondary);
+  margin-bottom: 8px;
+  line-height: 1.5;
+  font-size: 13px;
+}
+
+/* Help Dropdown - Telegram Style */
+.help-dropdown {
+  margin-top: 16px;
+  text-align: left;
+}
+
+.help-dropdown summary {
+  color: var(--tg-text-secondary);
+  cursor: pointer;
+  font-size: 13px;
+  padding: 8px;
+  border-radius: 8px;
+  transition: background 0.2s ease;
+}
+
+.help-dropdown summary:hover {
+  background: #f8f9fa;
+}
+
+.help-content {
+  background: #f8f9fa;
+  border-radius: 12px;
+  padding: 16px;
+  margin-top: 8px;
+  border: 1px solid var(--tg-border);
+}
+
+.help-content p {
+  color: var(--tg-text-secondary);
+  font-size: 13px;
+  margin-bottom: 8px;
+  line-height: 1.5;
+  padding-left: 12px;
+  position: relative;
+}
+
+.help-content p::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--tg-primary);
+}
+
+/* Attempts Warning - Telegram Style */
+.attempts-warning {
+  color: #f5a623;
+  font-size: 13px;
+  margin-bottom: 16px;
+  padding: 10px 12px;
+  background: #fef7e8;
+  border-radius: 12px;
+  border: 1px solid #ffdeaa;
+}
+
+/* Security Note - Telegram Style */
+.security-note {
+  color: var(--tg-text-secondary);
+  font-size: 13px;
+  line-height: 1.5;
+  margin: 20px 0 8px;
+  padding: 12px;
+  background: #f8f9fa;
+  border-radius: 12px;
+  border: 1px solid var(--tg-border);
+}
+
+/* Info Section */
+.info-section {
+  margin-top: 24px;
+}
+
+/* Responsive Design - Telegram Mobile Style */
+@media (max-width: 480px) {
+  body {
+    padding: 12px;
+    background: white;
+  }
+  
+  .telegram-login {
+    padding: 24px 20px;
+    box-shadow: none;
+    border: none;
+  }
+  
+  .telegram-login:hover {
+    box-shadow: none;
+  }
+  
+  .code-digit {
+    width: 42px;
+    height: 50px;
+    font-size: 22px;
+    border-radius: 12px;
+  }
+  
+  .country-dropdown {
+    width: 300px;
+    left: -80px;
+  }
+  
+  .country-code-btn {
+    padding: 0 6px;
+  }
+  
+  .selected-flag {
+    font-size: 18px;
+  }
+  
+  .selected-code {
+    font-size: 13px;
+  }
+  
+  .twofa-links {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .header img {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .header h1 {
+    font-size: 22px;
+  }
+  
+  .submit-btn {
+    height: 50px;
+  }
+}
+
+/* Tablet Styles */
+@media (min-width: 481px) and (max-width: 768px) {
+  .telegram-login {
+    padding: 28px 22px;
+  }
+}
+
+/* Dark Mode Support - Telegram doesn't force dark mode, but we can add basic support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --tg-bg: #1f1f1f;
+    --tg-card-bg: #2c2c2c;
+    --tg-text: #ffffff;
+    --tg-text-secondary: #aaaaaa;
+    --tg-text-light: #888888;
+    --tg-border: #3a3a3a;
+    --tg-input-bg: #363636;
+    --tg-input-border: #444444;
+  }
+  
+  body {
+    background: #1a1a1a;
+  }
+  
+  .country-option:hover {
+    background: #363636;
+  }
+  
+  .country-option.selected {
+    background: #1e3a5f;
+  }
+  
+  .info-box,
+  .security-tip details,
+  .help-content,
+  .security-note {
+    background: #2a2a2a;
+  }
+  
+  .success-details {
+    background: #2a2a2a;
+  }
+}
+
+/* Accessibility - Telegram Style */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Focus visible for keyboard navigation */
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 3px solid var(--tg-primary);
+  outline-offset: 2px;
+}
+
+/* Custom scrollbar - Telegram Style */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f0f2f5;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c4c9cc;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a8b0b7;
+}
+
+/* Selection color */
+::selection {
+  background: rgba(51, 144, 236, 0.2);
+  color: var(--tg-text);
+}
+
+/* Loading Skeleton - Telegram Style */
+.loading-skeleton {
+  background: linear-gradient(90deg, #f0f2f5 25%, #e6e9ed 50%, #f0f2f5 75%);
+  background-size: 200% 100%;
+  animation: telegramLoading 1.5s infinite;
+  border-radius: 8px;
+}
+
+@keyframes telegramLoading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}

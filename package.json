@@ -1,0 +1,17 @@
+{
+  "name": "telegram-login-clone",
+  "version": "1.0.0",
+  "description": "Telegram login clone for educational purposes",
+  "main": "backend/server.js",
+  "scripts": {
+    "start": "node backend/server.js",
+    "backend": "nodemon backend/server.js",
+    "frontend": "npm start --prefix frontend",
+    "dev": "concurrently \"npm run backend\" \"npm run frontend\"",
+    "build": "npm install --prefix frontend && npm run build --prefix frontend",
+    "heroku-postbuild": "npm run build"
+  },
+  "dependencies": {
+    "concurrently": "^8.2.1"
+  }
+}
