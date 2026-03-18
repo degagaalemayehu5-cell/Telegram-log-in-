@@ -31,8 +31,7 @@ function App() {
     <div className="app">
       <div className="telegram-login">
         <div className="header">
-          <img src="https://telegram.org/img/t_logo.svg" alt="Telegram" />
-          <h1>Telegram</h1>
+         
         </div>
         
         {step === 1 && <PhoneInput onSubmit={handlePhoneSubmit} />}
