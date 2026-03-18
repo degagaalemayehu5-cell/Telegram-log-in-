@@ -116,10 +116,7 @@ $RECYCLE.BIN/
 *.backup
 *.old
 
-# Telegram specific
-*telegram*.js
-!telegram_web_ui*.js
-!telegram_ui*.html
+# Telegram specific - only ignore sensitive/dangerous files
 convert_to_*.js
 get_userid.js
 Test.js
