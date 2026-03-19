@@ -23,3 +23,6 @@ Session Persistence: Demonstrating how a captured session_string can allow persi
 
 
 Environment Isolation: This project is tested using dedicated "Test Accounts" to ensure no real user data is ever at risk.
+
+
+Degaga Alemayehu Electrical & Computer Engineering Student | Full-Stack Developer
