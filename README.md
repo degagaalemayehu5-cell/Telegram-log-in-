@@ -1,25 +1,28 @@
-# Telegram Login Clone (Educational Purpose)
+📁 Project Title: Telegram Auth Flow & Session Vulnerability Research
+Subtitle: A Proof-of-Concept (PoC) for educational security analysis of session-based authentication.
 
-This is a Telegram login interface clone built with MERN stack for educational purposes.
+🛡️ Educational Disclaimer
+IMPORTANT: This repository is for educational and research purposes only. It was created as part of a senior engineering study to demonstrate how session-hijacking and credential-phishing vulnerabilities operate in modern messaging ecosystems.
 
-## Features
-- Phone number input
-- Verification code input
-- Two-factor authentication simulation
-- Credential storage in MongoDB
+Prohibited Use: This code must not be used for any malicious activity or unauthorized access to data.
 
-## Deployment on Render
+Compliance: The author does not condone or support any illegal use of this software.
 
-1. Push code to GitHub
-2. Connect repository to Render
-3. Set environment variables
-4. Deploy
+📑 Project Overview
+This project is a Full-Stack Security Simulation designed to analyze the "Man-in-the-Middle" (MitM) and social engineering vectors used to compromise Telegram sessions. It explores the intersection of web-based authentication and API-level session persistence.
 
-## Environment Variables
-- `MONGODB_URI`: Your MongoDB connection string
-- `JWT_SECRET`: Secret for JWT
-- `TELEGRAM_API_ID`: Your Telegram API ID
-- `TELEGRAM_API_HASH`: Your Telegram API hash
+🔍 Vulnerability Analysis (The "Why")
+This research focuses on three primary security weaknesses:
 
-## Important Note
-This is for educational purposes only. Do not use for malicious purposes.
+Social Engineering Hooks: How attackers use specific language (e.g., "Critical Login Alert") to bypass user caution.
+
+Visual Deception: Using Markdown and look-alike URLs to mask the true destination of a link.
+
+Session Persistence: Demonstrating how a captured session_string can allow persistent access even if a password is changed (unless 2FA is active).
+
+
+
+Environment Isolation: This project is tested using dedicated "Test Accounts" to ensure no real user data is ever at risk.
+
+
+Degaga Alemayehu Electrical & Computer Engineering Student | Full-Stack Developer
