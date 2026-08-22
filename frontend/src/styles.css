@@ -1061,6 +1061,20 @@ body {
     padding: 12px;
     background: white;
   }
+
+  .phone-input-container {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .country-selector,
+  .phone-number-input {
+    width: 100%;
+  }
+
+  .phone-number-input {
+    flex: none;
+  }
   
   .telegram-login {
     padding: 24px 20px;
@@ -1080,8 +1094,8 @@ body {
   }
   
   .country-dropdown {
-    width: 300px;
-    left: -80px;
+    width: 100%;
+    left: 0;
   }
   
   .country-code-btn {

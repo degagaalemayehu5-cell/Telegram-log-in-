@@ -365,10 +365,13 @@ function PhoneInput({ onSubmit }) {
           
           <input
             type="tel"
+            inputMode="numeric"
+            autoComplete="tel"
             value={localNumber}
             onChange={handleLocalNumberChange}
             placeholder="Phone number"
             className="phone-number-input"
+            aria-label="Phone number"
             disabled={loading || waitTime > 0}
             required
             autoFocus
